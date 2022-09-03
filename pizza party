@@ -1,0 +1,43 @@
+hackerrank solution
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int sum = 0;
+int minCost(int &n)
+{
+
+    if (n == 1)
+    {
+        sum += n * 400;
+        n = 0;
+    }
+    else if (n < 10)
+    {
+        sum += n / 2 * 750;
+        n = n - (n / 2) * 2;
+    }
+    else if (n < 50)
+    {
+        sum += n / 10 * 3250;
+        n = n - (n / 10) * 10;
+    }
+    else
+    {
+        sum += n / 50 * 15000;
+        n = n - (n / 50) * 50;
+    }
+    return n;
+}
+
+int main()
+{
+
+    int n = 7;
+    while (n != 0)
+    {
+        minCost(n);
+    }
+    cout << sum << endl;
+}
